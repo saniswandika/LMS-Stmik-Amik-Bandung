@@ -1,0 +1,248 @@
+/* navbar */
+.navbar-brand {
+    font-family: Viga;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+/* background */
+.jumbotron {
+    background: linear-gradient(rgba(8, 8, 8, 0.7), rgba(0, 0, 0, 0.5)),
+        url("../images/kampus.jpg");
+    background-size: cover;
+    height: 640px;
+    text-align: center;
+}
+.jumbotron .display-4 {
+    top: 70px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 150px 60px 50px;
+    color: white;
+    font-family: Viga;
+    text-shadow: 0px 2px 2px rgba(110, 105, 105, 0.4);
+}
+/* info panel */
+.info-panel {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    background-color: white;
+    margin-top: -50px;
+    padding: 30px;
+}
+.info-panel img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.info-panel h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: left;
+}
+.info-panel p {
+    font-size: 14px;
+    color: #acacac;
+    margin-top: -5px;
+    text-align: left;
+}
+/* workingspace */
+.workingspace img {
+    margin-top: 120px;
+    width: 100%;
+    height: 80%;
+    border-radius: 35px;
+    background-size: cover;
+}
+.workingspace h3 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.workingspace P {
+    text-align: justify;
+}
+.workingspace h3 span {
+    font-weight: 500;
+}
+
+/* logo */
+.logo2 {
+    left: 50px;
+    mix-blend-mode: screen;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 50px;
+}
+.imageslogo {
+    mix-blend-mode: screen;
+}
+.logo {
+    mix-blend-mode: screen;
+    text-align: center;
+    padding: 30px 10px 50px;
+}
+/*Utility*/
+.tombol {
+    text-transform: uppercase;
+    border-radius: 40px;
+    font-size: 15px;
+    margin-left: 23px;
+}
+/* footer */
+
+/*dekstop version*/
+@media (min-width: 992px) {
+    .navbar-brand,
+    .nav-link {
+        color: rgb(0, 0, 0) !important;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+    }
+    .nav-link {
+        font-family: Viga;
+        text-transform: uppercase;
+        margin-right: 30px;
+        color: white;
+    }
+    .nav-link:hover::after {
+        content: "";
+        display: block;
+        border-bottom: 3px solid #f8f8f8;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 5px;
+        margin-bottom: -8px;
+    }
+    .jumbotron {
+        margin-top: -75px;
+    }
+    .logo2 {
+        left: 50px;
+        mix-blend-mode: screen;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 50px;
+    }
+    .logo {
+        mix-blend-mode: screen;
+        text-align: center;
+        padding: 10px 300px;
+        position: relative;
+    }
+    .workingspace h3 {
+        margin-top: 150px;
+    }
+    .workingspace img {
+        width: 100%;
+        height: 70%;
+        border-radius: 35px;
+        background-size: cover;
+    }
+}
+
+/* navbar */
+/* .navbar-brand {
+    font-family: Viga;
+    font-size: 20;
+    color: rgba(0, 0, 0, 0.5);
+}
+/* background */
+/* .jumbotron {
+    background: linear-gradient(rgba(8, 8, 8, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/kampus.jpg");
+    background-size: cover;
+
+    height: 700px;
+}
+.jumbotron .display-4 {
+    color: white;
+
+    margin-top: 50px;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 200px;
+    font-size: 35px;
+    font-family: Viga;
+    text-shadow: 0px 2px 2px rgba(110, 105, 105, 0.4);
+}
+.logo2 {
+    left: 50px;
+    mix-blend-mode: screen;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 50px;
+}
+.logo {
+    mix-blend-mode: screen;
+    object-fit: cover;
+    position: absolute;
+    max-height: 1500px;
+    max-width: 500px;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+} */
+
+/*Utility*/
+.tombol {
+    text-transform: uppercase;
+    border-radius: 40px;
+    font-size: 15px;
+    margin-left: 23px;
+}
+
+/*dekstop version*/
+/* @media (min-width: 992px) {
+    .navbar-brand,
+    .nav-link {
+        color: white !important;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+    }
+    .nav-link {
+        font-family: Viga;
+        text-transform: uppercase;
+        margin-right: 30px;
+        color: white;
+    }
+    .nav-link:hover::after {
+        content: "";
+        display: block;
+        border-bottom: 3px solid #000000;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 5px;
+        margin-bottom: -8px;
+    }
+    .jumbotron {
+        margin-top: -75px;
+    }
+    .jumbotron .display-4 {
+        font-size: 63px;
+    }
+    .logo {
+        mix-blend-mode: screen;
+        object-fit: cover;
+        position: absolute;
+        max-height: 90%;
+        max-width: 90%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        right: 0;
+        margin: auto;
+    }
+}  */
