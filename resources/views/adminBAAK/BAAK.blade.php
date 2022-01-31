@@ -8,19 +8,19 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                           with font-awesome or any other icon font library -->
+                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('') }}" class="nav-link">
+            <a href="{{ url('BAAK') }}" class="nav-link">
                 <i class=""></i>
                 <p>
                     ini baak
                 </p>
-                <a href="{{ url('mahasiswa') }}" class="nav-link">
+                <a href="{{ url('hasilcari-baak') }}" class="nav-link">
 
                     <p>
-                        ini baak
+                        Lihat Data mahasiswa
 
                     </p>
                     @csrf

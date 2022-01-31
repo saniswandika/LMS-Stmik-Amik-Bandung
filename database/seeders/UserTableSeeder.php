@@ -18,12 +18,14 @@ class UserTableSeeder extends Seeder
             'name' => 'BAAK',
             'email' => 'BAAKadmin@gmail.com',
             'role' => 'BAAK',
+            'npm'   => '123456789',
             'password' => bcrypt('12345678'),
         ];
         User::create($user);
         $user = [
             'name' => 'BAPSI',
             'email' => 'BAPSIadmin@gmail.com',
+            'npm'   => '123456789',
             'role' => 'BAPSI',
             'password' => bcrypt('bapsi1234'),
         ];
@@ -34,6 +36,7 @@ class UserTableSeeder extends Seeder
         $user = [
             'name' => 'pembimbing',
             'email' => 'pembimbing@gmail.com',
+            'npm'   => '123456789',
             'role' => 'pembimbing',
             'password' => bcrypt('pembimbing123'),
         ];

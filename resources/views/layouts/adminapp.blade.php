@@ -72,7 +72,8 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('images/icon-student.png') }}" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -80,17 +81,7 @@
                 </div>
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- Sidebar Menu -->
                 <main class="py-4">
@@ -102,36 +93,24 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
-            <div class="nav navbar navbar-expand navbar-white navbar-light border-bottom p-0">
-                <div class="nav-item dropdown">
+        <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="10000">
+            <div class="nav navbar navbar-expand navbar-white navbar-light border-bottom">
 
-                </div>
 
-                <a class="nav-link mr-auto bg-light" href="#" data-widget="iframe-fullscreen"><i
-                        class="fas fa-expand"></i></a>
+
             </div>
 
             <div class="tab-content">
                 <main class="py-4">
                     @yield('isi')
-                </main>
-                <div class="tab-loading">
-                    <div>
 
-                    </div>
-                </div>
+
             </div>
+            </main>
         </div>
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0-rc
-        </div>
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

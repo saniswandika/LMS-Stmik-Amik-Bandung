@@ -15,7 +15,7 @@ class User extends Authenticatable
 
     function media()
     {
-        return $this->hasMany(media::class);;
+        return $this->hasMany(media::class);
     }
     /**
      * The attributes that are mass assignable.
@@ -26,6 +26,7 @@ class User extends Authenticatable
 
         'name',
         'email',
+        'NPM',
         'password',
     ];
 
