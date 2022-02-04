@@ -8,7 +8,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
         @endif
         <li class="nav-item">
         @else
@@ -93,16 +93,17 @@
                                     </td>
 
                                     <td align="center">
-                                        <button type="button" class="btn btn-info" data-toggle="modal"
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#DaftarNilai-{{ $media->id }}">
                                             {{ $media->status }}
                                         </button>
                                     </td>
+                                </tr>
                             @endif
                         @endforeach
                         @foreach ($medias as $data)
                             <tr>
-                                <div class="modal fade" id="DaftarNilai-{{ $data->id }}" tabindex="-1"
+                                <div class="modal fade" id="DaftarNilai-{{ $data->id }}" tabindex="-5"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -111,8 +112,7 @@
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('media.store') }}" method="POST"
-                                                    enctype="multipart/form-data">
+                                                <form action="" method=" POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="card-body">
 

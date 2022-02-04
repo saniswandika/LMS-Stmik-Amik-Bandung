@@ -8,7 +8,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   with font-awesome or any other icon font library -->
         @endif
         <li class="nav-item">
         @else
@@ -367,6 +367,13 @@
                                                         <input type="file" class="form-control" name="file"
                                                             id="file">
                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="keterangan">Keterangan :</label>
+                                                    <textarea name="keterangan" class="form-control" id="keterangan"
+                                                        value="" rows="3">
+
+                                                    </textarea>
                                                 </div>
 
                                             </div>
@@ -737,7 +744,7 @@
                                 upload
                             </button>
                         </td>
-                        <div class="modal fade" id="DaftarNilai" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="DaftarNilai" tabindex="-2" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -756,6 +763,11 @@
                                                         <input type="file" class="form-control" name="file"
                                                             id="file">
                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="keterangan">Keterangan :</label>
+                                                    <textarea name="keterangan" class="form-control" id="keterangan"
+                                                        value="" rows="3"></textarea>
                                                 </div>
 
                                             </div>
@@ -806,7 +818,7 @@
                                             <div class="card-body">
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputFile">Masukan file Baru</label>
+                                                    <label for="exampleInputFile"></label>
                                                     <div class="input-group">
                                                         <input type="file" class="form-control" name="file"
                                                             id="file">

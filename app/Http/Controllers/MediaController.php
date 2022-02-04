@@ -73,11 +73,9 @@ class MediaController extends Controller
                 $media->konfirmasi = 'null';
                 $media->user_id = Auth::user()->id;
                 $media->save();
-
-                Alert::success('berhasil', 'mahasiswa berhasil di upload');
             }
 
-            Alert::success('tidak', 'mahasiswa  tidak berhasil di upload');
+            Alert::success('success', 'mahasiswa berhasil upload file');
         }
 
         return redirect()->back()->with('message', 'Error, tidak ada file ditemukan');

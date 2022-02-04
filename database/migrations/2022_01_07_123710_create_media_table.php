@@ -22,7 +22,7 @@ class CreateMediaTable extends Migration
             $table->integer('size');
             $table->string('mime');
             $table->string('status');
-            $table->string('keterangan', 50)->nullable();
+            $table->string('keterangan', 1000)->nullable();
             $table->string('konfirmasi', 50)->nullable();
             $table->timestamps();
         });

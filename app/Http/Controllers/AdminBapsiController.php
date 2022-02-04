@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\user;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,7 @@ class AdminBapsiController extends Controller
 
         $name = $request->id;
         $medias = Media::where('user_id', 'like', "%" . $name . "%")->paginate(10);
-        return view('adminpembimbing.lihatmhs', compact('medias'));
+        return view('adminBAPSI.lihatmhs', compact('medias'));
     }
     // $medias = Media::where('user_id', $id)->first();
     // $datamhs = Media::orderBy('created_at', 'DESC')->get();
@@ -28,7 +29,7 @@ class AdminBapsiController extends Controller
 
         $name = $request->name;
         $categories = User::where('name', 'like', "%" . $name . "%")->paginate(10);
-        return view('adminpembimbing.hasilcari', compact('categories'));
+        return view('adminBAPSI.hasilcari', compact('categories'));
     }
     // public function updateStatus($id)
     // {
@@ -42,7 +43,7 @@ class AdminBapsiController extends Controller
 
         $syarat  = DB::table('media')->where('id', $id)->first();
 
-        return view('adminpembimbing.SyaratForm',  compact('syarat'));
+        return view('adminBAPSI.SyaratForm',  compact('syarat'));
     }
 
     public function syaratSimpan(Request $request, $id)
@@ -51,7 +52,9 @@ class AdminBapsiController extends Controller
 
         $syarat->status = $request->input('status');
         $syarat->keterangan = $request->input('keterangan');
+        $syarat->konfirmasi = $request->input('konfirmasi');
         $syarat->update();
+        Alert::success('status', 'mahasiswa sudah berhasil di update');
         return redirect()->back()->with('status', 'mahasiswa sudah berhasil di update');
     }
 }
