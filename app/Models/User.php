@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -15,8 +16,27 @@ class User extends Authenticatable
 
     function media()
     {
-        return $this->hasMany(media::class);
+        return $this->hasMany(Media::class);
+        // return $this->belongsToMany(Media::class,'media_user', 'media_id', 'user_id');
     }
+    function user_media()
+    
+    {
+        return $this->belongsToMany(Media::class,'media_user', 'media_id', 'user_id');
+    }
+
+    function mata_kuliah()
+    {
+        return $this->hasMany(mata_kuliah::class);
+    }
+    // function alldata()
+    // {
+    //     return DB::table('users')
+    //     ->leftJoin('media', 'media.id', '=', 'media.id')
+    //     ->get();
+    // }
+
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +48,7 @@ class User extends Authenticatable
         'email',
         'NPM',
         'password',
+        'role'
     ];
 
     /**

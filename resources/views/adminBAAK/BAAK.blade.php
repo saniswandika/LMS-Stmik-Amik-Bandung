@@ -12,17 +12,20 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('BAAK') }}" class="nav-link">
-                <i class=""></i>
-                <p>
-                    ini baak
-                </p>
-                <a href="{{ url('hasilcari-baak') }}" class="nav-link">
+                <a href="{{ url('role-baak') }}" class="nav-link">
 
-                    <p>
-                        Lihat Data mahasiswa
+                    <p> 
+                        <i class="nav-icon fa fa-eye"></i> Lihat Mahasiswa
+    
+                   </p>
+                    @csrf
+                </a>
+                <a href="{{ url('matakuliah') }}" class="nav-link">
 
-                    </p>
+                    <p> 
+                        <i class="nav-icon fas fa-edit"></i> Masukan Data Mata Kuliah
+    
+                   </p>
                     @csrf
                 </a>
 
@@ -30,51 +33,49 @@
     </li>
 @endsection
 </nav>
-<section class="content">
 
-    <!-- Default box -->
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">BAAK</h3>
+                    <section class="content">
+                        <div class="container center">
+                            <!-- Default box -->
+                            <div class="card">
+                                <div class="card-header">
+                                    @include('sweetalert::alert')
+                                    
+                                    <h3 class="card-title text-center">Profile Data {{ Auth::user()->name }}</h3>
 
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-
-            </div>
-        </div>
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Daftar Persyaratan Sidang HALOOO</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">data</th>
-                    <th scope="col">aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td></td>
-                    <td>
-                        <div class="form-group">
-                            <label></label>
-                            <input type="file" id="filecount" multiple="multiple">
-                        </div>
-
-
-                    </td>
-
-            </tbody>
-        </table>
-    </div>
-
-
-    </body>
-
-    </html>
+                                    
+                                    </div>
+                                    <div class="container-fluid">
+                                     <div class="row" style="margin-top: 22px;">
+                                        <div class="col-md-12">
+                                            
+                                            <div class="card card-primary card-outline mb-3">
+                                                <div class="card-body box-profile">
+                                                    <div class="text-center">
+                                            {{-- <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture"> --}}
+                                                    </div>
+                                                        <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
+                                                            <p class="text-muted text-center">{{ Auth::user()->role }}</p>
+                                                            <ul class="list-group list-group-unbordered mb-3">
+                                                                <li class="list-group-item">
+                                                                        <b>Nomer Induk Mahasiswa</b> <a class="float-right">{{ Auth::user()->npm}}</a>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                        <b>Keterangan</b> <a class="float-right">{{ Auth::user()->role }}</a>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <b>E-mail</b> <a class="float-right">{{ Auth::user()->email}}</a>
+                                                                </li>
+                                                            </ul>
+                                                        <a href="/role-baak" class="btn btn-primary btn-block"><b>Lihat mahasiswa</b></a>
+                                                </div>
+                                            
+                                            </div>
+                                    </div>
+                                </div>
+                                    
+                                <br>
+                                
+                            </div>
+                    </section>
 @endsection

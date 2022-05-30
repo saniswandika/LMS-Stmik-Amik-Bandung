@@ -12,20 +12,13 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('pembimbing') }}" class="nav-link">
+            <a href="{{ url('/home') }}" class="nav-link">
                 <i class=""></i>
-                <p>
-                    Halaman Utama
+                <p> 
+                    <i class="fa fa-home" aria-hidden="true"></i> Halaman Profile 
 
-                </p>
-                <a href="{{ url('pembimbing') }}" class="nav-link">
-
-                    <p>
-                        lihat data mahasiswa
-
-                    </p>
-                    @csrf
-                </a>
+               </p>
+            </a>
 
             @endguest
     </li>
@@ -39,20 +32,20 @@
 
             <form action="{{ url('hasilcari') }}" action="GET">
                 {{ @csrf_field() }}
-                <input type="text" name="name" placeholder="Ingin mencari apa ?" class="form-control"><br>
+                <input type="text" name="name" placeholder="cari mahasiswa wali" class="form-control"><br>
                 <input type="submit" class="btn btn-md btn-outline-primary">
             </form>
             <hr>
             {{-- @foreach ($article as $row)
                 <a href="{{ url('lihatmhs' . $row->id) }}" class="nav-link">knadknan</a>
             @endforeach --}}
-            <a href="{{ url('create') }}" class="btn btn-md btn-primary">Add</a><br><br>
             <table class="table table-bordered">
                 <tr>
                     <th>No.</th>
 
                     <th>Name</th>
                     <th>Aksi</th>
+                    <th>role</th>
                 </tr>
                 @php
                     $no = 1;
@@ -61,12 +54,13 @@
                     <tr>
                         <td>{{ $no++ }}</td>
 
-                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->user->name }}</td>
                         <td> <a href="{{ url('lihatsyaratmhs' . $category->id) }}" class="btn btn-primary">Lihat
                                 syarat
                             </a>
                             <a href="{{ url('delete/' . $category->id) }}" class="btn btn-danger">Delete</a>
                         </td>
+                        <td>{{ $category->role }}</td>
                     </tr>
                 @endforeach
             </table>

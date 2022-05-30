@@ -49,10 +49,12 @@ class AdminBapsiController extends Controller
     public function syaratSimpan(Request $request, $id)
     {
         $syarat = Media::find($id);
+     
 
         $syarat->status = $request->input('status');
         $syarat->keterangan = $request->input('keterangan');
         $syarat->konfirmasi = $request->input('konfirmasi');
+        $syarat->konfirmasi = $request->input('nama pembimbing');
         $syarat->update();
         Alert::success('status', 'mahasiswa sudah berhasil di update');
         return redirect()->back()->with('status', 'mahasiswa sudah berhasil di update');

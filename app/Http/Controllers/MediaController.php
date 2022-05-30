@@ -20,7 +20,7 @@ class MediaController extends Controller
         $medias = Media::table('media')->get();
 
 
-        return view('media', compact('medias'));
+        // return view('media', compact('medias'));
     }
 
 
@@ -43,10 +43,13 @@ class MediaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:doc,docx,xls,xlsx,pdf,jpg,jpeg,png,bmp'
+            'file' => 'required|mimes:doc,docx,xls,xlsx,pdf,jpg,jpeg,png,bmp',
+            'mata_kuliah' => 'required'
         ]);
+        $input['mata_kuliah '] = $request->input('mata_kuliah ');
 
-        if ($request->hasFile('file')) {
+
+        if ($request->all()) {
             $uploadPath = public_path('uploads');
 
             if (!File::isDirectory($uploadPath)) {
@@ -60,6 +63,8 @@ class MediaController extends Controller
             $rename = 'file_' . date('YmdHis') . '.' . $extension;
             $mime = $file->getClientMimeType();
             $filesize = $file->getSize();
+            $input = implode(',', $request->mata_kuliah);
+            // $dosen =  $request->nama_pembimbing;
 
             if ($file->move($uploadPath, $rename)) {
                 $media = new Media;
@@ -71,14 +76,18 @@ class MediaController extends Controller
                 $media->status = 'baru';
                 $media->keterangan = 'null';
                 $media->konfirmasi = 'null';
+                $media->nama_pembimbing =  Auth::user()->id;;
+                $media->mata_kuliah = $input;
                 $media->user_id = Auth::user()->id;
                 $media->save();
             }
-
+   
             Alert::success('success', 'mahasiswa berhasil upload file');
+            return redirect('/home')->with('success','Product created successfully.');
+           
         }
 
-        return redirect()->back()->with('message', 'Error, tidak ada file ditemukan');
+        return redirect()('message', 'Error, tidak ada file ditemukan');
     }
 
 

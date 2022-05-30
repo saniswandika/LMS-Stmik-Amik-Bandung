@@ -3,6 +3,25 @@
 
 @section('isi')
 @section('sana')
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+<link rel="stylesheet" type="text/css" href={{ asset('plugins/fontawesome-free/css/all.min.css') }}>
+
+<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<link rel="stylesheet" type="text/css" href={{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}>
+
+<link rel="stylesheet" type="text/css" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+<link rel="stylesheet" type="text/css" href={{ asset('plugins/jqvmap/jqvmap.min.css') }}>
+
+
+<link rel="stylesheet" href={{ asset('dist/css/adminlte.min.css?v=3.2.0') }}>
+
+<link rel="stylesheet" type="text/css" href={{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}>
+
+<link rel="stylesheet" src={{ asset('plugins/daterangepicker/daterangepicker.css') }}>
     @guest
         @if (Route::has('login'))
             <nav class="mt-2">
@@ -13,17 +32,20 @@
         <li class="nav-item">
         @else
             <a href="{{ url('lihat') }}" class="nav-link">
-                <i class=""></i>
-                <p>
-                    lihat hasil persyaratan
+      
+         
+                {{-- <p> 
+                    <i class="nav-icon fa fa-eye"></i> Hasil Input perwalian
+              </p> --}}
+                 
 
-                </p>
+
                 <a href="{{ url('mahasiswa') }}" class="nav-link">
-
-                    <p>
-                        input data persyaratan
-
-                    </p>
+                    
+                    <p> 
+                        <i class="nav-icon 	fa fa-home"></i> Profile mahasiswa
+                   </p>
+                  
                     @csrf
                 </a>
 
@@ -55,6 +77,7 @@
                         <th style="text-align:center;" <th width="10%">nama mahasiswa</th>
                         <th style="text-align:center;" <th width="10%">nomer induk mahasiswa</th>
                         <th style="text-align:center;" align="left" width="10%">File</th>
+                        <th style="text-align:center;" align="left" width="10%">matkul yang di ambil</th>
                         <th style="text-align:center;" width="25%">Tindakan</th>
                         <th style="text-align:center;" width="10%">Download</th>
                         <th style="text-align:center;" align="left" width="25%">status</th>
@@ -64,17 +87,21 @@
 
                     @if ($medias->count())
                         @foreach ($medias as $media)
-                            @if ($media->user->id == Auth::user()->id)
+                            @if ($media->user_id == Auth::user()->id)
                                 <tr>
                                     <td>{{ $media->user->name }}</td>
                                     <td>{{ $media->user->npm }}</td>
+                                  
                                     <td>
                                         <div>Nama: {{ $media->name }}</div>
                                         <div>File: {{ $media->file }}</div>
+                                        
                                         <div>Ekstensi: {{ $media->extension }}</div>
                                         <div>Ukuran: {{ $media->size }}</div>
                                         <div>Mime: {{ $media->mime }}</div>
                                     </td>
+                                    
+                                    <td>{{ $media->mata_kuliah }}</td>
 
                                     <td align="center">
                                         <button class="btn btn-danger" form="delete-file"
@@ -129,6 +156,13 @@
                                                             <div class="input-group">
                                                                 <p type="text" class="form-control" name="keterangan"
                                                                     id="keterangan">{{ $data->konfirmasi }} </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputFile">dosen wali :</label>
+                                                            <div class="input-group">
+                                                                <p type="text" class="form-control" name="keterangan"
+                                                                    id="keterangan">{{ $data->nama_pembimbing }} </p>
                                                             </div>
                                                         </div>
 

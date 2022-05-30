@@ -14,10 +14,13 @@ class lihatdataController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $medias = Media::orderBy('created_at', 'DESC')->get();
-
+        
+        // $medias = Media::orderBy('created_at', 'DESC')->get();
+        $medias = Media::select('media.*','users.name as nama_pembimbing')->join('users','users.id','=' , 'media.nama_pembimbing')->get();
+        
+        // dd($medias);
         return view('adminMHS.lihatData', compact('medias'));
     }
 

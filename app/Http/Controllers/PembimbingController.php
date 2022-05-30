@@ -15,14 +15,19 @@ class PembimbingController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->user = new user();
+      
     }
 
     public function index(Request $request)
     {
-
+        // $medias =[
+        //     'users' => $this->user->alldata(),
+        // ];
+        // dd($medias);
         $name = $request->id;
-        $medias = Media::where('user_id', 'like', "%" . $name . "%")->paginate(10);
-        return view('adminpembimbing.lihatmhs', compact('medias'));
+        $medias = Media::where('id', 'like', "%" . $name . "%")->paginate(10);
+        return view('adminpembimbing.lihatmhs',  ['medias' => $medias]);
     }
     // $medias = Media::where('user_id', $id)->first();
     // $datamhs = Media::orderBy('created_at', 'DESC')->get();
@@ -30,9 +35,25 @@ class PembimbingController extends Controller
     {
 
         $name = $request->name;
-        $categories = User::where('name', 'like', "%" . $name . "%")->paginate(10);
+        // $post = DB::table('')->select('id', 'title')->where('id', 1)->first();
+        $categories = User::where('name', $name)->paginate(10);
+        // $categories = User::where('role', 'mahasiswa')->paginate(10);
         return view('adminpembimbing.hasilcari', compact('categories'));
     }
+
+    public function rolemhs(Request $request)
+    {
+
+        $name = $request->name;
+        // $post = DB::table('')->select('id', 'title')->where('id', 1)->first();
+     
+        $categories = Media::where('nama_pembimbing',auth::user()->id)->paginate(10);
+        // $categories = User::where('role', 'mahasiswa')->paginate(10);
+        return view('adminpembimbing.hasilcari', compact('categories'));
+    }
+  
+ 
+
     // public function updateStatus($id)
     // {
     //     $medias = \App\Models\Media::findOrFail($id);
@@ -44,7 +65,7 @@ class PembimbingController extends Controller
     {
 
         $syarat  = DB::table('media')->where('id', $id)->first();
-
+      
         return view('adminpembimbing.SyaratForm',  compact('syarat'));
     }
 

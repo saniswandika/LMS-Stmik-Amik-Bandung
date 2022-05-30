@@ -12,18 +12,12 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('lihat') }}" class="nav-link">
-                <i class=""></i>
-                <p>
-                    lihat hasil persyaratan
+                <a href="{{ url('lihatsyaratmhs' . $syarat->id) }}" class="nav-link">
 
-                </p>
-                <a href="{{ url('lihatsyaratmhs' . $syarat->user_id) }}" class="nav-link">
-
-                    <p>
-                        input data persyaratan
-
-                    </p>
+                    <p> 
+                        <i class="fa fa-file" aria-hidden="true"></i> Lihat Data mahasiswa
+    
+                   </p>
                     @csrf
                 </a>
 
@@ -74,7 +68,7 @@
                             <input class="form-control" type="hidden" name="id" id="id" value="{{ $syarat->id }}">
                             <select class="form-control" name="konfirmasi" id="konfirmasi"
                                 value="{{ $syarat->konfirmasi }}">
-                                <option>pembimbing</option>
+                                <option>{{ Auth::user()->name }}</option>
 
 
                             </select>

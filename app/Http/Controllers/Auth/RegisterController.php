@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'NPM' => ['required', 'string', 'unique:users', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => 'in:dosen,mahasiswa',
         ]);
     }
 
@@ -65,11 +67,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+   
         return User::create([
             'name' => $data['name'],
             'NPM' => $data['NPM'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => $data['role'],
         ]);
+       
     }
+    // protected function showrole()
+    // {
+   
+    //     $categories = User::where('role', 'mahasiswa')->paginate(10);
+    //     return view('auth.register', [ 'categories'=>$categories]);
+       
+    // }
+
+  
 }

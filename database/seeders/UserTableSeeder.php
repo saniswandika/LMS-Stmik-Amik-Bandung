@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-
+use Illuminate\Support\Facades\DB;
 class UserTableSeeder extends Seeder
 {
     /**
@@ -15,18 +15,18 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $user = [
-            'name' => 'BAAK',
-            'email' => 'BAAKadmin@gmail.com',
-            'role' => 'BAAK',
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
             'npm'   => '123456789',
             'password' => bcrypt('12345678'),
         ];
-        User::create($user);
+        User::create($user); 
         $user = [
-            'name' => 'BAPSI',
-            'email' => 'BAPSIadmin@gmail.com',
+            'name' => 'dosen',
+            'email' => 'dosenwaliadmin@gmail.com',
             'npm'   => '123456789',
-            'role' => 'BAPSI',
+            'role' => 'dosen',
             'password' => bcrypt('bapsi1234'),
         ];
 
@@ -37,11 +37,38 @@ class UserTableSeeder extends Seeder
             'name' => 'pembimbing',
             'email' => 'pembimbing@gmail.com',
             'npm'   => '123456789',
-            'role' => 'pembimbing',
+            'role' => 'dosen',
+            'password' => bcrypt('pembimbing123'),
+        ];
+       
+
+        $user = [
+            'name' => 'pembimbing',
+            'email' => 'pembimbing@gmail.com',
+            'npm'   => '123456789',
+            'role' => 'dosen',
             'password' => bcrypt('pembimbing123'),
         ];
 
 
         User::create($user);
+       
+        DB::table('mata_kuliah')->insert([
+            'kode_matkul' => '14025',
+            'nama_matkul' => 'pemograman berbasis web',
+            'sks' => '2',
+        ]);
+        DB::table('mata_kuliah')->insert([
+            'kode_matkul' => '14029',
+            'nama_matkul' => 'object oriented programming',
+            'sks' => '4',
+        ]);
+
+        DB::table('mata_kuliah')->insert([
+            'kode_matkul' => '14090',
+            'nama_matkul' => 'data scients',
+            'sks' => '3 ',
+        ]);
     }
+   
 }

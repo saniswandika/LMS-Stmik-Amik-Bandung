@@ -14,7 +14,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="app-auth-branding mb-4"><a href="/"> <img class="logo5"
-                                src="{{ asset('images/amik.png') }}"></a>
+                                src="{{ asset('images/stimik.png') }}"></a>
 
                     </div>
                     <h2 class="auth-heading text-center mb-5">Login to Dashboard</h2>
@@ -104,8 +104,7 @@
 
         </div>
         <div class="auth-background-mask">
-            <img class="gambarlogin" src="{{ asset('images/stmikamik2.jpg') }}">
-            </img>
+            <img class="gambarlogin" src="{{ asset('images/stmikbdg.jpg') }}"></img>
         </div>
         <div class="auth-background-overlay p-3 p-lg-5">
             <div class="d-flex flex-column align-content-end h-100">

@@ -13,18 +13,18 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('pembimbing') }}" class="nav-link">
+            <a href="{{ url('/home') }}" class="nav-link">
                 <i class=""></i>
-                <p>
-                    lihat hasil persyaratan
+                <p> 
+                    <i class="fa fa-home" aria-hidden="true"></i> Halaman Profile 
 
-                </p>
-                <a href="{{ url('hasilcari') }}" class="nav-link">
+               </p>
+                <a href="{{ url('role') }}" class="nav-link">
 
-                    <p>
-                        input data persyaratan
-
-                    </p>
+                    <p> 
+                        <i class="nav-icon fa fa-eye"></i> Lihat Mahasiswa
+    
+                   </p>
                     @csrf
                 </a>
 
@@ -34,12 +34,13 @@
 @endsection
 <section class="content">
     <div class="container">
-        <div style="width: 1200px">
+        
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Hasil Input Persyaratan</h3>
 
+                    
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 
@@ -47,6 +48,7 @@
 
                     </div>
                 </div>
+                
                 @if (session()->has('message'))
                     <p>{{ session()->get('message') }}</p>
                 @endif
@@ -57,7 +59,9 @@
                             <th style="text-align:center;" <th width="10%">nama mahasiswa</th>
                             <th style="text-align:center;" <th width="10%">nomer induk mahasiswa</th>
                             <th style="text-align:center;" align="left" width="10%">File</th>
+                            <th style="text-align:center;" align="left" width="10%">mata kuliah yang di ambil</th>
                             <th style="text-align:center;" align="left" width="10%">status</th>
+
                             <th style="text-align:center;" width="10%">Download</th>
                             <th style="text-align:center;" width="25%">Tindakan</th>
 
@@ -77,7 +81,9 @@
                                         <div>Ukuran: {{ $media->size }}</div>
                                         <div>Mime: {{ $media->mime }}</div>
                                     </td>
-
+                                    <td>
+                                        <div>{{ $media->mata_kuliah }}</div>
+                                    </td>    
                                     <td align="center">
                                         <button type="button" class="btn btn-info" data-toggle="modal"
                                             data-target="#DaftarNilai-{{ $media->id }}">

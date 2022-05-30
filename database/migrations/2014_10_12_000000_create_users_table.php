@@ -20,9 +20,13 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('npm');
-            $table->enum('role', ['mahasiswa', 'BAAK', 'BAPSI', 'pembimbing']);
+            $table->enum('role', ['mahasiswa', 'admin', 'dosen']);
+            
+            $table->foreignId('media_id')->nullable();
+            
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
@@ -34,5 +38,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        
     }
 }

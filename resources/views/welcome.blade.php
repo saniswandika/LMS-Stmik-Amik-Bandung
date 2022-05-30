@@ -25,17 +25,14 @@
     {{-- navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container">
-            <a class="navbar-brand" href="#"><img class="logo2" src="{{ asset('images/download.png') }}"></a>
+            <a class="navbar-brand" href="#"><img class="logo2" src="{{ asset('images/stimik.png') }}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="row workspace">about</a>
-                    <a class="nav-item nav-link" href="#">project</a>
-
+                  
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/home') }}"
@@ -59,8 +56,8 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">STMIK AMIK BANDUNG<br> <img class="logo"
-                    src="{{ asset('images/download.png') }}">
+            <h1 class="display-4">STMIK BANDUNG<br>"Sistem Perwalian"<br> <img class="logo"
+                    src="{{ asset('images/stimik.png') }}">
         </div>
     </div>
     {{-- akhir background --}}
@@ -74,25 +71,19 @@
 
                     <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
                         <img src="{{ asset('images/employee.png') }}" alt="mahasiswa" class="float-left">
-                        <h4>login mahasiswa</h4>
+                        <h4>Login Mahasiswa</h4>
                         <p>khusus mahasiswa</p>
                     </a>
                     <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
                         <img src="{{ asset('images/teacher.png') }}" alt="BAAK" class="float-left">
-                        <h4>login pembimbing</h4>
-                        <p>khusus mahasiswa</p>
-                    </a>
-                    <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
-
-                        <img src="{{ asset('images/bapsi.png') }}" alt="BAPSI" class="float-left">
-                        <h4>login BAPSI</h4>
-                        <p>khusus mahasiswa</p </div>
+                        <h4>Login Dosen </h4>
+                        <p>khusus Dosen</p>
                     </a>
                     <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
 
                         <img src="{{ asset('images/keuangan.png') }}" alt="BAPSI" class="float-left">
-                        <h4>login BAAK</h4>
-                        <p>khusus mahasiswa</p </div>
+                        <h4>login Admin</h4>
+                        <p>khusus Admin</p>
                     </a>
 
                 </div>
@@ -101,10 +92,10 @@
         {{-- akhir info login --}}
         <div class="row workingspace">
             <div class="col-lg-6">
-                <img src="{{ asset('images/stmikamik2.jpg') }}" alt="Workingspace">
+                <img src="{{ asset('images/stmikbdg.jpg') }}" alt="Workingspace">
             </div>
             <div class="col-lg-5">
-                <h3>STMIK <br><span>“AMIK BANDUNG”</h3>
+                <h3>STMIK <br><span>“BANDUNG”</h3>
                 <p> merupakan perguruan tinggi swasta di bidang ICT yang terus mengikuti
                     perkembangan teknologi terkini dan senantiasa menjaga mutu kompetensi lulusan. Dalam rangka
                     mewujudkan kompetensi lulusan, STMIK “AMIKBANDUNG” mendukung program pemerintah untuk kemandirian di
@@ -135,7 +126,7 @@
                     <!-- Content -->
 
 
-                    <img class="logo4" src="{{ asset('images/STMIK-AMIKBANDUNG.png') }}">
+                    <img class="logo4" src="{{ asset('images/stimik.png') }}">
 
                 </div>
                 <!-- Grid column -->

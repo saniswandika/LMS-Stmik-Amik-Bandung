@@ -12,12 +12,12 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('BAAK') }}" class="nav-link">
+            <a href="{{ url('/home') }}" class="nav-link">
                 <i class=""></i>
-                <p>
-                    Halaman Utama
+                <p> 
+                    <i class="fa fa-home" aria-hidden="true"></i> Halaman Profile 
 
-                </p>
+               </p>
                 {{-- <a href="{{ url('pembimbing') }}" class="nav-link">
 
                     <p>
@@ -46,13 +46,15 @@
             {{-- @foreach ($article as $row)
                 <a href="{{ url('lihatmhs' . $row->id) }}" class="nav-link">knadknan</a>
             @endforeach --}}
-            <a href="{{ url('create') }}" class="btn btn-md btn-primary">Add</a><br><br>
+           
             <table class="table table-bordered">
                 <tr>
                     <th>No.</th>
 
                     <th>Name</th>
-                    <th>Aksi</th>
+                    <th>mahasiswa</th>
+                    <th>Dosen wali</th>
+               
                 </tr>
                 @php
                     $no = 1;
@@ -62,11 +64,14 @@
                         <td>{{ $no++ }}</td>
 
                         <td>{{ $category->name }}</td>
-                        <td> <a href="{{ url('/lihatmhsbaak' . $category->id) }}" class="btn btn-primary">Lihat
-                                syarat
-                            </a>
-                            <a href="{{ url('delete/' . $category->id) }}" class="btn btn-danger">Delete</a>
+                      
+                        <td> 
+                            <a href="{{ url('/lihatmhsbaak' . $category->id) }}" class="btn btn-primary">Lihat Perwalian</a>
+                        </td>   
+                        <td>
+                                <a href="{{ route('input_dosen_wali' , $category->id) }}" class="btn btn-primary">Input Dosen Wali Mahasiswa</a>
                         </td>
+                     
                     </tr>
                 @endforeach
             </table>
@@ -74,4 +79,21 @@
         </div>
         </section>
         </table>
+
+        <ul>
+           {{-- @foreach ($user_post as $a)
+                            
+                            <li>nama pembimbing :   {{$a->nama_pembimbing}}</li>
+                           
+                            @foreach ($a->media_user as $tag )
+                                 <td></td>
+                                 <td>{{ $tag->name}}</td>
+                            @endforeach
+            @endforeach
+                    </ul>
+                    <ul>
+                 --}}
+                                
+                
+        </ul>
     @endsection

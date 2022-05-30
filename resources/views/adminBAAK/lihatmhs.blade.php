@@ -13,18 +13,18 @@
         @endif
         <li class="nav-item">
         @else
-            <a href="{{ url('BAAK') }}" class="nav-link">
+            <a href="{{ url('/home') }}" class="nav-link">
                 <i class=""></i>
-                <p>
-                    Halaman Utama BAAK
+                <p> 
+                    <i class="fa fa-home" aria-hidden="true"></i> Halaman Profile 
 
-                </p>
-                <a href="{{ url('hasilcari-baak') }}" class="nav-link">
+               </p>
+                <a href="{{ url('/role-baak') }}" class="nav-link">
 
-                    <p>
-                        lihat seluruh mahasiswa
-
-                    </p>
+                    <p> 
+                        <i class="nav-icon fa fa-eye"></i> Lihat Seluruh Mahasiswa
+    
+                   </p>
                     @csrf
                 </a>
 
@@ -34,7 +34,6 @@
 @endsection
 <section class="content">
     <div class="container">
-        <div style="width: 1200px">
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
@@ -48,19 +47,17 @@
                     </div>
                 </div>
                 @if (session()->has('message'))
-                    <p>{{ session()->get('message') }}</p>
+                     <h6 class="alert alert-success">{{ session('status') }}</h6>
                 @endif
 
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="text-align:center;" <th width="10%">nama mahasiswa</th>
-                            <th style="text-align:center;" <th width="10%">nomer induk mahasiswa</th>
+                            <th style="text-align:center;" <th width="10%">nama file upload</th>
+                            <th style="text-align:center;" align="left" width="10%">matkul yang di ambil</th>  
                             <th style="text-align:center;" align="left" width="10%">File</th>
-                            <th style="text-align:center;" align="left" width="10%">status</th>
-                            <th style="text-align:center;" width="10%">Download</th>
-                            <th style="text-align:center;" width="25%">Tindakan</th>
-
+                            <th style="text-align:center;" align="left" width="10%">download </th>  
+                            <th style="text-align:center;" width="10%">Konfirmasi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,8 +65,9 @@
                             @foreach ($medias as $media)
 
                                 <tr>
-                                    <td>{{ $media->user->name }}</td>
-                                    <td>{{ $media->user->npm }}</td>
+                                    <td>{{ $media->name }}</td>
+                                    {{-- <td>{{ $media->npm }}</td> --}}
+                                    <td>{{ $media->mata_kuliah }}</td>
                                     <td>
                                         <div>Nama: {{ $media->name }}</div>
                                         <div>File: {{ $media->file }}</div>
@@ -77,12 +75,6 @@
                                         <div>Ukuran: {{ $media->size }}</div>
                                         <div>Mime: {{ $media->mime }}</div>
                                     </td>
-
-                                    <td align="center">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#DaftarNilai-{{ $media->id }}">
-                                            {{ $media->status }}
-                                        </button>
                                     <td align="center">
                                         <a href="{{ url('uploads/' . $media->file) }}" download><button
                                                 class="btn btn-info">Download</button></a>
@@ -91,8 +83,7 @@
 
 
                                         <a href="{{ url('form-syarat-baak' . $media->id) }}"
-                                            class="btn btn-primary ml-2 ">Revisi
-                                            Syarat</a>
+                                            class="btn btn-primary ml-2 ">konfirmasi</a>
 
                                         <form action="{{ route('media.destroy', $media->id) }}" method="post"
                                             id="delete-file">
@@ -100,10 +91,7 @@
                                             <input type="hidden" name="_method" value="delete">
                                         </form>
                                     </td>
-
                                 </tr>
-
-
                             @endforeach
 
                         @endif
@@ -156,7 +144,9 @@
                                 </div>
                             </tr>
                         @endforeach
+                    </tr>
                     </tbody>
+                </table>
             </div>
         </div>
 </section>
