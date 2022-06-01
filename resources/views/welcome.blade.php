@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/logo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/sass/app.css') }}">
-    <title>stmik-amikbandung</title>
+    <title>stmik-bandung</title>
 </head>
 
 <body>
