@@ -92,9 +92,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" id="role" name="role">
                                         <option readonly></option>
-                                        @foreach ($categories as $data)
-                                          <option value="{{ $data }}">{{ $data }}</option>
-                                       @endforeach
+                                   
                                     </select>
                                     @error('role')
                                         <span class="invalid-feedback" role="alert">

@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'NPM' => ['required', 'string', 'unique:users', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => 'in:dosen,mahasiswa',
+            //'role' => 'in:dosen,mahasiswa',
         ]);
     }
 
@@ -73,17 +73,18 @@ class RegisterController extends Controller
             'NPM' => $data['NPM'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => $data['role'],
+            //'role' => $data['role'],
         ]);
        
     }
-    // protected function showrole()
-    // {
+    protected function showrole()
+    {
    
-    //     $categories = User::where('role', 'mahasiswa')->paginate(10);
-    //     return view('auth.register', [ 'categories'=>$categories]);
+        $categories = User::where('role', 'mahasiswa')->paginate(10);
+        dd($categories);
+        return view('auth.register', [ 'categories'=>$categories]);
        
-    // }
+    }
 
   
 }

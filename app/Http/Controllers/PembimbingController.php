@@ -27,6 +27,9 @@ class PembimbingController extends Controller
         // dd($medias);
         $name = $request->id;
         $medias = Media::where('id', 'like', "%" . $name . "%")->paginate(10);
+
+      
+        
         return view('adminpembimbing.lihatmhs',  ['medias' => $medias]);
     }
     // $medias = Media::where('user_id', $id)->first();
@@ -49,6 +52,7 @@ class PembimbingController extends Controller
      
         $categories = Media::where('nama_pembimbing',auth::user()->id)->paginate(10);
         // $categories = User::where('role', 'mahasiswa')->paginate(10);
+        dd($categories);
         return view('adminpembimbing.hasilcari', compact('categories'));
     }
   
