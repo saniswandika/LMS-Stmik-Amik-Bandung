@@ -15,6 +15,8 @@ class mata_kuliah extends Model
             'kode_matkul',
             'nama_matkul',
             'sks',
+            'Semester',
+            'jurusan',
             'created_at'
         ];
 

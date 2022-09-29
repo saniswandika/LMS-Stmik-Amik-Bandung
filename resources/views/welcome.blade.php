@@ -11,6 +11,8 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://kit.fontawesome.com/9aacc24a56.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,7 +27,7 @@
 </head>
 
 <body>
-    {{-- navbar --}}
+    {{-- navbar
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -34,14 +36,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
+                  {{-- navbar --}}
                   
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/home') }}"
                                 class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                         @else
-                            <a class=" tombol" href="{{ route('login') }}" class=""></a>
-
+                            <a class="tombol" href="{{ route('login') }}" class=""></a>
                             @if (Route::has('register'))
                             @endif
                         @endauth
@@ -54,7 +56,7 @@
     
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Perwalian Online<br>STMIK "AMIKBANDUNG" <br>
+            <h1 class="display-4">Sistem Informasi Akademik<br>STMIK "AMIKBANDUNG" <br></h1>
             </div>
             <div class="gambaramik">
                 <img alt="STMIK AMIKBANDUNG" width="300px" height="280px" src="https://lms.stmik-amikbandung.ac.id/accounts/1/files/434/download?verifier=H3By4R7ivUgLr0LQZ7CayA9qhBJtnhCOfqnyI8Yl">
@@ -66,15 +68,14 @@
 
         {{-- info panel --}}
         <div class="row justify-content-center">
-            <div class="info-panel col-12 ">
+            <div class="info-panel col-7 ">
                 <div class="row">
-
-                    <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
-                        <img src="{{ asset('images/employee.png') }}" alt="mahasiswa" class="float-left">
-                        <h4>Login Mahasiswa</h4>
-                        <p>Khusus Mahasiswa</p>
+                    <a class="btn btn-light" href="{{ route('login') }}" style="height: 175px;">
+                        <img src="{{ asset('images/logo-login.png') }}" alt="mahasiswa" class="float-center">
+                        <h4 style="text-align-last: center; font-size: 20px">Login</h4>
+                        <p style="text-align-last: center; font-size: 15px">Mahasiswa, Dosen & Admin</p>
                     </a>
-                    <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
+                    {{-- <a class="col-lg btn btn-light mr-2 " href=" {{ route('login') }}" class="">
                         <img src="{{ asset('images/teacher.png') }}" alt="BAAK" class="float-left">
                         <h4>Login Dosen </h4>
                         <p>Khusus Dosen</p>
@@ -84,17 +85,64 @@
                         <img src="{{ asset('images/keuangan.png') }}" alt="BAPSI" class="float-left">
                         <h4>login Admin</h4>
                         <p>Khusus Admin</p>
-                    </a>
-
+                    </a> --}}
                 </div>
             </div>
         </div>
         {{-- akhir info login --}}
-        <div class="row workingspace">
-         
+        {{-- Konten Landing --}}
+       <div class="judul">
+            <h1 class="display-7">Pengumuman</h1>
+        </div>
+        <div class="container-fluid mt-5">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            <div class="carousel-inner">
+                @php
+                    $no=1;
+                @endphp
+                @foreach($w as $v)
+                @php
+                    $e=$no++;
+                @endphp
+                <div class="carousel-item @if($e == '1') active @else @endif" data-bs-interval="5000">
+                    <img src="\{{ $v->image }}" class="d-block w-50 m-auto" alt="info">
+                <div class="carousel-caption d-none d-md-block">
+            </div>
+            </div>
+                @endforeach
+              {{-- <div class="carousel-item active" data-bs-interval="5000">
+                <img src="{{ asset('images/des.png') }}" class="d-block w-50 m-auto" alt="info">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="{{ asset('images/feb1.png') }}" class="d-block w-50 m-auto" alt="info">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="{{ asset('images/feb2.png') }}" class="d-block w-50 m-auto" alt="info">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div> --}}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
     </div>
+        {{-- Konten Landing --}}
     {{-- bagian footer --}}
     <!-- Footer -->
     <footer>
@@ -137,10 +185,10 @@
                     <div class="col-md-2 col-sm-2 col-xs-2">
                         <h5 class="heading">Link Terkait</h5>
                         <ul class="card-text">
-                            <li>Website Kampus</li>
-                            <li>Akademik</li>
-                            <li>Kemahasiswaan</li>
-                            <li>E-Learning</li>
+                            <li><a class="target" href="https://stmik-amikbandung.ac.id/" class="elementor-item" style="color: gray"> infostmik_amikbdg</a></li>
+                            <li><a href="#" style="color: gray">Akademik</a></li>
+                            <li><a href="#" style="color: gray">Kemahasiswaan</a></li>
+                            <li><a href="#" style="color: gray">E-Learning</a></li>
                         </ul>
                     </div>
                 </div>

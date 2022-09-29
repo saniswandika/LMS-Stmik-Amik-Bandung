@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('Pendaftaran Akun Mahasiswa & Dosen') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nama Lengkap') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group row  mb-3">
                                 <label for="NPM" class="col-md-4 col-form-label text-md-end">
-                                   Nomer Induk 
+                                   NPM / NIP
                                 </label>
 
                                 <div class="col-md-6">
@@ -43,7 +43,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Alamat Email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -82,6 +82,15 @@
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
+
+                            </div>
+                            <div class="row mb-3">
+                                <label for="image"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Foto Profile') }}</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" type="file" id="formFile" name="image">
+                              </div>
                             </div>
 
                             <div class="form-group row  mb-3">
@@ -91,7 +100,11 @@
 
                                 <div class="col-md-6">
                                     <select class="form-control" id="role" name="role">
-                                        <option readonly></option>
+                                        <option readonly>
+                                         @foreach ($categories as $data) 
+                                            <option value="{{ $data }}">{{ $data }}</option>
+                                         @endforeach
+                                        </option>
                                    
                                     </select>
                                     @error('role')
@@ -105,7 +118,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Submit') }}
                                     </button>
                                 </div>
                             </div>

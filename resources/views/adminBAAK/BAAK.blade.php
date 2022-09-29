@@ -1,81 +1,60 @@
-@extends('layouts.adminapp')
+@extends('layouts.admapp')
 
 @section('isi')
-@section('sana')
 
-    @guest
-        @if (Route::has('login'))
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
-        @endif
-        <li class="nav-item">
-        @else
-                <a href="{{ url('role-baak') }}" class="nav-link">
 
-                    <p> 
-                        <i class="nav-icon fa fa-eye"></i> Lihat Mahasiswa
-    
-                   </p>
-                    @csrf
-                </a>
-                <a href="{{ url('matakuliah') }}" class="nav-link">
+<section class="content">
+    <div class="container center">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                @include('sweetalert::alert')
+                <h3 class="card-title text-center mt-2 mb-3" style="font-size: 22px"> <i class="nav-icon fas fa-user"></i> Profile Admin </h3>
+                
 
-                    <p> 
-                        <i class="nav-icon fas fa-edit"></i> Masukan Data Mata Kuliah
-    
-                   </p>
-                    @csrf
-                </a>
-
-            @endguest
-    </li>
-@endsection
-</nav>
-
-                    <section class="content">
-                        <div class="container center">
-                            <!-- Default box -->
-                            <div class="card">
-                                <div class="card-header">
-                                    @include('sweetalert::alert')
-                                    
-                                    <h3 class="card-title text-center">Profile Data {{ Auth::user()->name }}</h3>
-
-                                    
-                                    </div>
-                                    <div class="container-fluid">
-                                     <div class="row" style="margin-top: 22px;">
-                                        <div class="col-md-12">
-                                            
-                                            <div class="card card-primary card-outline mb-3">
-                                                <div class="card-body box-profile">
-                                                    <div class="text-center">
-                                            {{-- <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture"> --}}
-                                                    </div>
-                                                        <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
-                                                            <p class="text-muted text-center">{{ Auth::user()->role }}</p>
-                                                            <ul class="list-group list-group-unbordered mb-3">
-                                                                <li class="list-group-item">
-                                                                        <b>Nomer Induk Mahasiswa</b> <a class="float-right">{{ Auth::user()->npm}}</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                        <b>Keterangan</b> <a class="float-right">{{ Auth::user()->role }}</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <b>E-mail</b> <a class="float-right">{{ Auth::user()->email}}</a>
-                                                                </li>
-                                                            </ul>
-                                                        <a href="/role-baak" class="btn btn-primary btn-block"><b>Lihat mahasiswa</b></a>
-                                                </div>
-                                            
-                                            </div>
-                                    </div>
-                                </div>
-                                    
-                                <br>
-                                
+            </div>
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 25px;">
+                    <div class="col-md-12">
+                        
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle" width="100px" height="100px"
+                                src="{{ \Auth::user()->image }}" alt="User profile picture">
                             </div>
-                    </section>
+                            <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
+                            <p class="text-muted text-center">{{ Auth::user()->role }}</p>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Kode Admin</b>
+                                    <p class="float-center">-</p>
+                                </li>
+                                {{-- <li class="list-group-item">
+                                    <b>Nomer Induk Dosen Nasional (NIDN)</b>
+                                    <p class="float-center">{{ Auth::user()->npm}}</p>
+                                </li> --}}
+                                {{-- <li class="list-group-item">
+                                    <b>Pendidikan Tertinggi</b>
+                                    <p class="float-center">S2</p>
+                                </li> --}}
+                                <li class="list-group-item">
+                                    <b>E-mail</b>
+                                    <p class="float-center">{{ Auth::user()->email}}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Admin</b>
+                                    <p class="float-center">BAAK - Keuangan</p>
+                                </li>
+                            </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+            </div>
+</section>
 @endsection

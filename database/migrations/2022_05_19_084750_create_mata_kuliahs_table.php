@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateMataKuliahsTable extends Migration
 {
     /**
@@ -17,6 +18,8 @@ class CreateMataKuliahsTable extends Migration
             $table->id('kode_matkul');
             $table->string('nama_matkul');
             $table->integer('sks');
+            $table->string('jurusan');
+            $table->integer('Semester');
             $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });

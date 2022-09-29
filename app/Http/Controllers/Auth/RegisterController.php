@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
 
 class RegisterController extends Controller
 {
@@ -55,8 +57,11 @@ class RegisterController extends Controller
             'NPM' => ['required', 'string', 'unique:users', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //'role' => 'in:dosen,mahasiswa',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:9999',
+            'role' => 'in:dosen,mahasiswa',
+
         ]);
+       
     }
 
     /**
@@ -67,13 +72,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-   
+        
+        $request = request();
+
+     $profileImage = $request->file('image');
+     $profileImageSaveAsName = time() . Auth::id() . "-profile." . $profileImage->getClientOriginalExtension();
+
+     $upload_path = 'image/';
+     $profile_image_url = $upload_path . $profileImageSaveAsName;
+     $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+            
         return User::create([
             'name' => $data['name'],
             'NPM' => $data['NPM'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            //'role' => $data['role'],
+            'role' => $data['role'],
+            'image' => $profile_image_url,
         ]);
        
     }

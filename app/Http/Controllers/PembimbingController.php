@@ -52,7 +52,7 @@ class PembimbingController extends Controller
      
         $categories = Media::where('nama_pembimbing',auth::user()->id)->paginate(10);
         // $categories = User::where('role', 'mahasiswa')->paginate(10);
-        dd($categories);
+       // dd($categories);
         return view('adminpembimbing.hasilcari', compact('categories'));
     }
   

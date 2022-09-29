@@ -46,5 +46,11 @@
         <button class="save">Upload</button>
     </div>
 </form>
-
+@foreach($w as $v)
+<div class="carousel-item active" data-bs-interval="5000">
+  <img src="\{{ $v->image }}" class="d-block w-50 m-auto" alt="info">
+  <div class="carousel-caption d-none d-md-block">
+  </div>
+</div>
+@endforeach
 @endsection

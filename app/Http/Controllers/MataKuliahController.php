@@ -17,17 +17,17 @@ class MataKuliahController extends Controller
     	// mengirim data mahasiswa ke view mahasiswa
 		// dd($user,$pegawai);
     	return view('adminMHS.inputdatamhs',   ['user' => $user, 'pegawai'=>$pegawai]);
-
+        
      
     }
 
 	public function TambahMatkul(Request $request)
     {
-    
+     
     	$request->validate([
             'kode_matkul' => 'required',
             'nama_matkul' => 'required',
-            'sks' => 'required'
+            'sks' => 'required',
         ]);
 
         mata_kuliah::create($request->all());

@@ -12,7 +12,7 @@
 .jumbotron {
     background: linear-gradient(rgba(8, 8, 8, 0.7), rgba(0, 0, 0, 0.5)), url("../images/kampus.jpg");
     background-size: cover;
-    height: 640px;
+    height: 740px;
     text-align: center;
 }
 
@@ -27,10 +27,8 @@
 }
 
 .loginback {
-    background: linear-gradient(rgba(8, 8, 8, 0.7), rgba(0, 0, 0, 0.5)), url("../images/kampus.jpg");
-    background-size: cover;
-    height: 800px;
-    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    height: 720px;
 }
 
 
@@ -40,15 +38,17 @@
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     background-color: white;
-    margin-top: -50px;
-    padding: 30px;
+    margin-top: -120px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .info-panel img {
     width: 80px;
     height: 80px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .info-panel h4 {
@@ -93,6 +93,10 @@
     font-weight: 500;
 }
 
+td {
+    max-width: 10%;
+}
+
 
 /* logo */
 
@@ -123,6 +127,13 @@
     border-radius: 40px;
     font-size: 15px;
     margin-left: 23px;
+}
+
+.judul {
+    text-align: center;
+    margin-top: 5%;
+    font-family: Viga;
+    justify-content: center;
 }
 
 
@@ -181,6 +192,11 @@ hr {
 
 .divider {
     border-top: 1px solid
+}
+
+.judul {
+    width: auto;
+    height: auto;
 }
 
 

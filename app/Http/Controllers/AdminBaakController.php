@@ -19,14 +19,17 @@ class   AdminBaakController extends Controller
         $this->middleware('auth');
         // $this->user = new user();
     }
-
+    public function utama()
+    {
+        return view('adminBAAK.BAAK');
+    }
     public function index(Request $request)
     {
         // $medias = [
         //     'penduduks' => $this->user->allData()
         // ];
-        $name = $request->id;
-        $medias =DB::table('Media')->where('user_id', 'like', "%" . $name . "%")->get();
+        $npm = $request->id;
+        $medias =DB::table('Media')->where('user_id', 'like', "%" . $npm . "%")->get();
         
         // $medias = Media::where('user_id', 'like', "%" . $name . "%")->paginate(10);
         // dd($medias);
@@ -37,8 +40,8 @@ class   AdminBaakController extends Controller
     public function getname(Request $request)
     {
 
-        $name = $request->name;
-        $categories = User::where('name', 'like', "%" . $name . "%")->paginate(10);
+        $npm = $request->npm;
+        $categories = User::where('npm', 'like', "%" . $npm . "%")->paginate(10);
         return view('adminBAAK.hasilcari', compact('categories'));
     }
     // public function updateStatus($id)
@@ -64,8 +67,8 @@ class   AdminBaakController extends Controller
        
     
         $categories = User::where('role', 'mahasiswa')->paginate(10);
-        $name = $request->id;
-        $medias =DB::table('Media')->where('user_id', 'like', "%" . $name . "%")->get();
+        $npm = $request->id;
+        $medias = DB::table('Media')->where('user_id', 'like', "%" . $npm . "%")->get();
     //    dd($request->all());
         return view('adminBAAK.hasilcari', ['medias'=>$medias, 'categories'=>$categories]);
     }
@@ -107,10 +110,13 @@ class   AdminBaakController extends Controller
     }
     public function inputmatakuliah(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'kode_matkul' => 'required',
             'nama_matkul' => 'required',
-            'sks' => 'required'
+            'sks' => 'required',
+            'jurusan' => 'required',
+            'Semester' => 'required'
         ]);
 
         mata_kuliah::create($request->all());
@@ -141,6 +147,14 @@ class   AdminBaakController extends Controller
         User::where('id', $id)->delete();
         Alert::success('status', 'mata kuliah sudah berhasil di hapus ');
         return redirect()->back()->with('success', 'Product created successfully.');
+    }
+    public function lihatbiodata($id)
+    {
+        $biodata = DB::table('mahasiswa')->where('idnama', 'like', "" . $id . "")->get();
+        $user = DB::table('users')->where('id', 'like', "" . $id . "")->get();
+        // dd($biodata);
+        return view('adminBAAK.lihatbiodata',['biodata' => $biodata, 'user' => $user]);
+
     }
     
 }

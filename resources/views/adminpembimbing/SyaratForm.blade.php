@@ -1,4 +1,4 @@
-@extends('layouts.adminapp')
+@extends('layouts.dsnapp')
 @extends('layouts.ajig')
 
 @section('isi')
@@ -30,7 +30,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">FORM SYARAT SIDANG</div>
+                <div class="card-header">
+                    <h3 class="card-title text-center" style="font-size: 22px" style="font-family: Times New Roman"> <i
+                        class="nav-icon fas fa-user"></i> Konformasi Pewalian</h3>
+                </div>
                 <div class="card-body">
                     <table>
                         @if (session('status'))
@@ -55,16 +58,16 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="konfirmasi">Konfirmasi syarat :</label>
+                            <label for="konfirmasi">Status :</label>
                             <input class="form-control" type="hidden" name="id" id="id" value="{{ $syarat->id }}">
                             <select class="form-control" name="status" id="status" value="{{ $syarat->status }}">
-                                <option>diterima</option>
-                                <option>revisi</option>
+                                <option>Diterima</option>
+                                <option>Ditolak</option>
 
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="konfirmasi">Konfirmasi oleh :</label>
+                            <label for="konfirmasi">Dikonfirmasi oleh :</label>
                             <input class="form-control" type="hidden" name="id" id="id" value="{{ $syarat->id }}">
                             <select class="form-control" name="konfirmasi" id="konfirmasi"
                                 value="{{ $syarat->konfirmasi }}">
@@ -84,7 +87,6 @@
 
                         </div> --}}
                         <button class="btn btn-lg btn-primary" type="submit">Submit</button>
-
                     </form>
 
                     @if ($message = Session::get('success'))

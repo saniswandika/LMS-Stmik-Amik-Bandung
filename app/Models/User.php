@@ -48,7 +48,8 @@ class User extends Authenticatable
         'email',
         'NPM',
         'password',
-        'role'
+        'role',
+        'image'
     ];
 
     /**

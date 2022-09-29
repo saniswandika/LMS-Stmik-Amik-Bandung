@@ -1,9 +1,10 @@
-@extends('layouts.adminapp')
+@extends('layouts.admapp')
 @extends('layouts.ajig')
 
 @section('isi')
 @section('sana')
-    @guest
+
+    {{-- @guest
         @if (Route::has('login'))
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -11,31 +12,31 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            with font-awesome or any other icon font library -->
         @endif
         <li class="nav-item">
-        @else
+        @else --}}
             {{-- <a href="{{ url('') }}" class="nav-link">
                 <i class=""></i>
                 <p>
                     lihat hasil persyaratan
 
                 </p> --}}
-            <a href="{{ url('/role-baak') }}" class="nav-link">
+            {{-- <a href="{{ url('/role-baak') }}" class="nav-link">
 
                 <p>
                     lihat file seluruh mahasiswa
-
                 </p>
                 @csrf
             </a>
-
-        @endguest
-    </li>
-    </nav>
+        @endguest --}}
+    {{-- </li>
+    </nav> --}}
 @endsection
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">Form Pemilihan Wali Dosen</div>
+                        <div class="card-header">
+                            <h3 class="card-title text-center mt-2 mb-3" style="font-size: 22px"> <i class="nav-icon fas fa-chalkboard-teacher"></i> Pemilihan Dosen Wali </h3>
+                        </div>
                         <div class="card-body">
                             <table>
                                 @if (session('status'))
@@ -82,18 +83,18 @@
                                     <textarea name="keterangan" class="form-control" id="keterangan" value=""
                                         rows="3">{{ $syarat->keterangan }}</textarea>
                                 </div>
-                                    
+            
                                 <div class="form-group">
                                     <label for="nama_pembimbing">Dosen wali :</label>
                                     <select class="form-control" id="nama_pembimbing" name="nama_pembimbing" >
                                         <option readonly>--Pilih Dosen Wali--</option>
-                                        @foreach ($categories as $data)
+                                    @foreach ($categories as $data)
                                         <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                     </select>
                                 </div>
                                 
-                            
+                        
                                 {{-- <div class="form-group">
                                     <input name="keterangan" id="keterangan" value="{{ $syarat->keterangan }}" type="text"
                                         placeholder="Body...">

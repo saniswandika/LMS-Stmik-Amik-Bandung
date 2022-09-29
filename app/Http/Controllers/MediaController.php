@@ -82,8 +82,8 @@ class MediaController extends Controller
                 $media->save();
             }
    
-            Alert::success('success', 'mahasiswa berhasil upload file');
-            return redirect('/home')->with('success','Product created successfully.');
+            Alert::success('success', 'Input Rencana Studi Berhasil');
+            return redirect('/lihat')->with('success','Input Rencana Studi Berhasil');
            
         }
 

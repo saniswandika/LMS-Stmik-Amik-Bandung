@@ -1,4 +1,4 @@
-@extends('layouts.adminapp')
+@extends('layouts.admapp')
 @extends('layouts.ajig')
 
 @section('isi')
@@ -8,8 +8,7 @@
         @if (Route::has('login'))
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   with font-awesome or any other icon font library -->
+                    <!-- Add icons to the links using the .nav-icon class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          with font-awesome or any other icon font library -->
         @endif
         <li class="nav-item">
         @else
@@ -37,7 +36,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Hasil Input Persyaratan</h3>
+                    <h3 class="card-title text-center mt-2 mb-3" style="font-size: 22px"> <i class="nav-icon fas fa-money-bill-wave"></i> Bukti Pembayaran Mahasiswa </h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -53,7 +52,7 @@
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="text-align:center;" <th width="10%">nama file upload</th>
+                            <th style="text-align:center;" <th width="10%">Nama File</th>
                             <th style="text-align:center;" align="left" width="10%">matkul yang di ambil</th>  
                             <th style="text-align:center;" align="left" width="10%">File</th>
                             <th style="text-align:center;" align="left" width="10%">download </th>  

@@ -1,4 +1,4 @@
-@extends('layouts.adminapp')
+@extends('layouts.admapp')
 @extends('layouts.ajig')
 
 @section('isi')
@@ -63,8 +63,8 @@
                             <label for="konfirmasi">Konfirmasi syarat :</label>
                             <input class="form-control" type="hidden" name="id" id="id" value="{{ $syarat->id }}">
                             <select class="form-control" name="status" id="status" value="{{ $syarat->status }}">
-                                <option>diterima</option>
-                                <option>revisi</option>
+                                <option>Diterima</option>
+                                <option>Ditolak</option>
 
                             </select>
                         </div>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,8 +29,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    protected $redirectTo = null;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated() {
+        if (Auth::check()) {
+            if (Auth::user()->role=='mahasiswa'){
+                return redirect()->route('utama');
+            } else  if (Auth::user()->role=='dosen'){
+                return redirect()->route('utamadsn');
+            } else  if (Auth::user()->role=='admin'){
+                return redirect()->route('utamaadm');
+            }
+        }
+    }
     /**
      * Create a new controller instance.
      *
@@ -37,4 +51,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-}
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string', 
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+        Alert::success('Anda Berhasil Login');
+        return redirect()->back()->with('status', 'mahasiswa sudah berhasil di update');
+        }
+    }
+
+
+    

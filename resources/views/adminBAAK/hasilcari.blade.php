@@ -1,36 +1,8 @@
-@extends('layouts.adminapp')
-@extends('layouts.ajig')
+@extends('layouts.admapp')
+
 
 @section('isi')
-@section('sana')
-    @guest
-        @if (Route::has('login'))
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           with font-awesome or any other icon font library -->
-        @endif
-        <li class="nav-item">
-        @else
-            <a href="{{ url('/home') }}" class="nav-link">
-                <i class=""></i>
-                <p> 
-                    <i class="fa fa-home" aria-hidden="true"></i> Halaman Profile 
 
-               </p>
-                {{-- <a href="{{ url('pembimbing') }}" class="nav-link">
-
-                    <p>
-                        lihat data mahasiswa
-
-                    </p> --}}
-                @csrf
-            </a>
-
-        @endguest
-    </li>
-    </nav>
-@endsection
 <div class="container">
     <!-- Default box -->
     <div class="card">
@@ -39,40 +11,45 @@
 
             <form action="{{ url('hasilcari-baak') }}" action="GET">
                 {{ @csrf_field() }}
-                <input type="text" name="name" placeholder="Ingin mencari apa ?" class="form-control"><br>
+                <input type="text" name="npm" placeholder="Cari Berdasarkan NPM" class="form-control"><br>
                 <input type="submit" class="btn btn-md btn-outline-primary">
             </form>
             <hr>
             {{-- @foreach ($article as $row)
-                <a href="{{ url('lihatmhs' . $row->id) }}" class="nav-link">knadknan</a>
+            <a href="{{ url('lihatmhs' . $row->id) }}" class="nav-link">knadknan</a>
             @endforeach --}}
-           
-            <table class="table table-bordered">
+
+            <table class="table table-bordered text-black">
                 <tr>
                     <th>No.</th>
-
-                    <th>Name</th>
-                    <th>mahasiswa</th>
+                   
+                    <th>NPM</th>
+                    <th>Nama</th>
+                    <th>Status Perwalian</th>
                     <th>Dosen wali</th>
-               
+                    <th>Biodata Mahasiswa</th>
+
                 </tr>
                 @php
-                    $no = 1;
+                $no = 1;
                 @endphp
                 @foreach ($categories as $category)
-                    <tr>
-                        <td>{{ $no++ }}</td>
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $category->npm }}</td>
+                    <td>{{ $category->name }}</td>
 
-                        <td>{{ $category->name }}</td>
-                      
-                        <td> 
-                            <a href="{{ url('/lihatmhsbaak' . $category->id) }}" class="btn btn-primary">Lihat Perwalian</a>
-                        </td>   
-                        <td>
-                                <a href="{{ route('input_dosen_wali' , $category->id) }}" class="btn btn-primary">Input Dosen Wali Mahasiswa</a>
-                        </td>
-                     
-                    </tr>
+                    <td>
+                        <a href="{{ url('/lihatmhsbaak' . $category->id) }}" class="btn btn-success">Bukti Pembayaran</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('input_dosen_wali' , $category->id) }}" class="btn btn-primary">Pilih Dosen
+                            Wali Mahasiswa</a>
+                    </td>
+                    <td>
+                        <a href="/lihatbiodata/{{ $category->id }}" class="btn btn-info">Lihat Biodata</a>
+                    </td>
+                </tr>
                 @endforeach
             </table>
             {{ $categories->links() }}
@@ -81,19 +58,17 @@
         </table>
 
         <ul>
-           {{-- @foreach ($user_post as $a)
-                            
-                            <li>nama pembimbing :   {{$a->nama_pembimbing}}</li>
-                           
-                            @foreach ($a->media_user as $tag )
-                                 <td></td>
-                                 <td>{{ $tag->name}}</td>
-                            @endforeach
+            {{-- @foreach ($user_post as $a)
+
+            <li>nama pembimbing : {{$a->nama_pembimbing}}</li>
+
+            @foreach ($a->media_user as $tag )
+            <td></td>
+            <td>{{ $tag->name}}</td>
             @endforeach
-                    </ul>
-                    <ul>
-                 --}}
-                                
-                
+            @endforeach
         </ul>
-    @endsection
+        <ul>
+            --}}
+        </ul>
+        @endsection

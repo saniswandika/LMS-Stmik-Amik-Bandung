@@ -53,22 +53,22 @@ class UserTableSeeder extends Seeder
 
         User::create($user);
        
-        DB::table('mata_kuliah')->insert([
-            'kode_matkul' => '14025',
-            'nama_matkul' => 'pemograman berbasis web',
-            'sks' => '2',
-        ]);
-        DB::table('mata_kuliah')->insert([
-            'kode_matkul' => '14029',
-            'nama_matkul' => 'object oriented programming',
-            'sks' => '4',
-        ]);
+        // DB::table('mata_kuliah')->insert([
+        //     'kode_matkul' => '14025',
+        //     'nama_matkul' => 'pemograman berbasis web',
+        //     'sks' => '2',
+        // ]);
+        // DB::table('mata_kuliah')->insert([
+        //     'kode_matkul' => '14029',
+        //     'nama_matkul' => 'object oriented programming',
+        //     'sks' => '4',
+        // ]);
 
-        DB::table('mata_kuliah')->insert([
-            'kode_matkul' => '14090',
-            'nama_matkul' => 'data scients',
-            'sks' => '3 ',
-        ]);
+        // DB::table('mata_kuliah')->insert([
+        //     'kode_matkul' => '14090',
+        //     'nama_matkul' => 'data scients',
+        //     'sks' => '3 ',
+        // ]);
     }
    
 }
